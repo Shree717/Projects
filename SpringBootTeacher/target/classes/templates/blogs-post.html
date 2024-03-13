@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body class="d-flex flex-column h-100">
+<main class="flex-shrink-0">
+    <section layout:fragment="body" class="py-5">
+        <a class="btn btn-dark mt-3 mx-4" style="font-size:20px;" th:href="@{/blog/update{blogId}(blogId=${blog.id})}">Update</a>
+        <div class="container mt-4">
+             <h1 th:text="${blog.title}"></h1>
+            <img style="width:500px;height:400px" th:src="${blog.photoUrl}">
+             <p th:text="${blog.date}"></p>
+            <h5 th:text="${blog.content}"></h5>
+    </div>
+        <div class="align-items-end">
+            <div>
+                <a class="bi bi-trash mt-3 mx-4" style="font-size:33px;display:flex;justify-content:end;" th:href="@{/post/delete{blogId}(blogId=${blog.id})}"></a>
+            </div>
+            </div>
+    </section>
+</main>
+
+</body>
+</html>

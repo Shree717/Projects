@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5eU47UoYDeCzURpg4ZUrOUPoNIFvcUgxTJQ&usqp=CAU" type="image/x-icon">
+    <title>CSS</title>
+    <style>
+        summary{
+            color: slateblue;
+            font-weight: bold;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        summary:hover{
+            background:linear-gradient(to bottom,red, rgb(48, 29, 172));
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            font-size: 20px;     
+            transition: all 0.2s;
+            transition-timing-function: ease-in;     
+        }
+
+        details pre{
+            font-weight: 500;
+        }
+        
+        body{
+        background-color: black;
+        color: white;
+        }
+
+        span, button{
+            cursor: pointer;
+        }
+
+        .dark-mode{
+            background-color: white;
+            color: black ;
+        }
+
+        a,h1{
+            text-align: center;
+            color: slateblue;
+        }
+        img{
+            width:60vw;
+            height:20vw;
+            margin-left: 10vw;
+        }
+
+        #btn{
+            border:none;
+            background: linear-gradient(to bottom right, red, blue);
+            height: 30px;
+            width: 120px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<section layout:fragment="body">
+    <h1>Cascading Style Sheets - Collection of formatting rules <span onclick="run()">💡</span></h1>
+
+    <br>
+
+<button id="btn" onclick="get()"> <b>OPEN / CLOSE</b> </button> <br><br>
+ <!-- --------------------- Why CSS ? --------------------- -->
+
+<details>
+        <summary>Why css?</summary>
+            <pre>
+                
+            HTML was NEVER intended to contain tags for formatting a web page!
+            HTML was created to describe the content of a web page.
+            World Wide Web Consortium (W3C) created CSS. 
+            CSS defines how HTML elements are to be displayed
+    
+            Advantages:
+            CSS saves time - You can write CSS once and then reuse same sheet in multiple HTML pages.
+            Search Engines - CSS is considered as clean coding technique, which means search engines won’t have to struggle to “read” its content.
+            Offline Browsing - CSS can store web applications locally with the help of offline catche.Using of this we can view offline websites
+        </pre>
+</details> <br>
+
+ <!-- --------------------- Styling Ways --------------------- -->
+
+<details>
+        <summary>Styling ways</summary>
+        <pre>
+
+            Inline
+            Internal
+            External
+        </pre>  
+</details> <br>
+
+ <!-- --------------------- Selectors --------------------- -->
+
+<details>
+        <summary>Selectors</summary>
+        <pre>
+            
+            Simple selectors (element, class, id, universal)
+            Combinator selectors (descendant, direct child, adjacent sibling, general sibling)
+            Pseudo-class selectors (select elements based on a certain state)
+            Pseudo-elements selectors (select and style a part of an element)
+            Attribute selectors (select elements based on an attribute or attribute value)
+        </pre>
+</details> <br>
+
+ <!-- --------------------- Types of selectors --------------------- -->
+
+<details>
+        <summary>Types of Selectors</summary>
+        <pre>
+        <h3>Simple selectors =></h3> 
+
+            #id	- #firstname -> Selects the element with id="firstname"
+
+            .class - .intro -> Selects all elements with class="intro"
+
+            * -> Selects all elements
+
+            element - p -> selects all p> elements
+
+            element,element,..  -  div, p -> Selects all div> elements and all p> elements
+
+            element.class - p.intro -> Selects only p> elements with class="intro"    
+            
+            
+            - An id & class name cannot start with a number!
+            - Order of importance:  !important > #Id > .Class > Element
+
+        <h3>Combination Selectors =></h3> 
+
+            .class p {} | .class p span {} - descendant
+
+            .class > p {} - direct child
+ 
+            .class + p {} - adjacent sibling
+
+            .class ~ p {} -  general sibling
+
+           <h3>pseudo class selector =></h3> 
+
+            :in-range {} - Selects input> elements with a value within a specified range
+
+            :out-of-range {}  - Selects input> elements with a value outside a specified range.The :in-range & :out-of-range selector only works for input elements with min and/or max attributes!
+
+            :root {} - Selects the document's root element
+       
+            1st and Last child - Need parent:
+            li:first-child {}
+
+            li:last-child {}
+
+            nth-child and nth-last-child:
+            li:nth-child(5/ 2n/ 2n+1/ even/ odd) {}
+
+            li:nth-last-child(5/ 2n/ 2n+1) {}
+
+            Parent not need:
+            nth-of-type and nth-last-of-type:
+            li:nth-of-type(even / odd)
+
+            li:nth-last-of-type(even/ odd/ 5/ 2n/ 2n+1)
+
+            only-child:
+            li:only-child {} - which has only one child and parent compulasory
+
+            only-of-type:
+            li:only-of-type {} - which has only one child and parent not need
+ 
+            first-of-type and last-of-type: - with or without parent
+            li:first-of-type {}
+
+            li:last-of-type {}
+
+            empty:
+            p:empty {}
+
+            not:
+            p:not(.class) {}
+
+            lang:
+            p:lang(en) {}
+
+            target:
+            p:target {} - mostly used with a> tag
+
+            focus:
+            #text:focus {}
+
+            checked:
+            input[type="checkbox"]:checked {}  - we cant change border for checkbox
+
+            enabled / disabled / required / optional:
+            input[type="text"]:enabled {}
+
+            read-only / read-write:
+            input[type="text"]:read-only {}
+
+            valid / invalid:
+            input[type="text"]:valid {} - using pattern in input> tage.
+
+            default:
+            input[type="radio"]:default {}
+
+            option:default {}
+
+            is():
+            #id :is(h1,h2,h3) {} - Alternate for =>  #id h1, #id h2, #id h3 {}
+
+            :is(#id1,#id2) h2 {}
+
+            :is(#id1,#id2) :is(h2,p) {}
+
+        <h3>pseudo element selector =></h3> 
+
+            ::placeholder {}
+
+            ::selection {}
+
+            ::first-letter {}
+
+            ::first-line {}
+
+            ::before {
+            content:"",
+            }
+ 
+            ::after {
+            content:"",
+            }
+ 
+            ::marker {} - The ::marker selector selects the marker of a list item.
+
+        <h3>Attribute Selector =></h3> 
+
+            div[class] - if div> tag has class attribute
+
+            div[class="inner"] - if div> tag has class attribute with value of 'inner'
+
+            div[class~="inner"] - Selects all elements with a class attribute containing the word "inner"
+
+            div[lang|="en"] - Selects all elements with a lang attribute value starting with "en" [The value has to be a whole word, either alone, like lang="en", or followed by a hyphen( - ), like lang="en-us"]
+
+            a[href^="text"] -  a> tag which has value begins with 'text'
+
+            a[href$="#"] -  a> tag which has value ends with '#'
+
+            a[href*="w3schools"] - Selects every a> element whose href attribute value contains the substring "w3schools"
+  
+
+            - * means that the val may be anywhere in the value of attribute, but in case of ~ the val must me exact part of value which can be separated by whitespaces
+        </pre>
+</details> <br>
+
+ <!-- --------------------- Font --------------------- -->
+
+<details>
+        <summary>Font</summary>
+        <pre>
+            
+            font-family, font-style [normal/ italic/ oblique], font-weight [normal/ lighter/ bold/ value], font-size [value]
+            
+            font-variant [normal/ small-caps], color, font [style variant weight size/line-height family], 
+            
+            font-face, font-kerning [auto/ normal/ none]
+    
+
+            - Web Safe Fonts? Web safe fonts are fonts that are universally installed across all browsers and devices.
+            - The font-kerning property controls the usage of the kerning information stored in a font. Kerning defines how letters are spaced.
+            - With the @font-face rule, web designers do not have to use one of the "web-safe" fonts anymore.
+            - The @font-face CSS at-rule specifies a custom font with which to display text; the font can be loaded from either a remote server or a locally-installed font on the user's own computer.
+              In the @font-face rule you must first define a name for the font (e.g. myFirstFont), and then point to the font file.
+            
+            <!-- @font-face {
+              font-family: myFirstFont;
+              src: url(sansation_light.woff);
+            }
+            div {
+              font-family: myFirstFont;
+            } -->
+
+        </pre>
+</details> <br>
+
+ <!-- --------------------- Text --------------------- -->
+
+<details>
+    <summary>Text</summary>
+    <pre>
+        
+            letter-spacing, text-decoration-line [none/ overline/ underline/ line-through/ overline underline],
+
+            text-decoration-color, text-decoration-style [solid/ double/ dotted/ wavy/ dashed], text-decoration-thickness [value], 
+        
+            text-decoration [line color style thickness], line-height [length/ percentage/ number/ normal(d)],
+
+            vertical-align [sub/ super/ baseline(d)/ text-top/ text-bottom], direction [ltr/ rtl], unicode-bidi [normal/ bidi-override],
+
+            text-transform [none(d)/ capitalize/ uppercase/ lowercase], text-align [center/ left(d)/ right/ justify], 
+        
+            text-align-last [left/ right/ center/ justify], text-indent [value], 
+        
+            text-shadow [h-shadow v-shadow blur-radius color], text-overflow [clip(d)/ ellipsis], word-spacing [normal/ value],
+
+            white-space [normal/ nowrap/ pre], word-wrap [normal/ break-word],  word-break [keep-all/ break-all/ break-word]
+
+    
+            - The direction and unicode-bidi properties can be used to change the text direction of an element
+            - The white-space property decides whether text will wrap or not as per website width.
+            - The CSS text-overflow property specifies how overflowed content that is not displayed should be signaled to the user. Both of the following properties are required for text-overflow:white-space: nowrap;overflow: hidden;
+            - The CSS word-wrap property allows long words to be able to be broken and wrap onto the next line.
+            - The word-break property specifies how words should break when reaching the end of a line.
+            - line-height: Negative values are not allowed.
+
+
+ 
+    </pre>
+</details> <br>
+
+ <!-- --------------------- Units --------------------- -->
+
+<details>
+    <summary>Units</summary>
+    <pre>
+        
+            Absolute (screen): [px/ pt/ cm/ mm/ in/ pc]
+            Relative (parent): [em/ rem/ precentage(%)/ ch/ ex/ vw/ vh/ vmax/ vmin/]
+
+            16px - Browser default font-size
+            1em - 16px
+            em -  Takes browser base value or parent size
+            rem- Takes browser bases (default / root) value instead of parent
+            vmax - Takes max value (vw or vh) and apply
+            vmin - Takes min value (vw or vh) and apply
+
+            - The absolute length units are fixed and a length expressed in any of these will appear as exactly that size.
+            - Relative length units specify a length relative to another length property. It adjust depend upon parent.
+            - 1vmin = 1vw (or) 1vh, whichever is smaller
+            - 1vmax = 1vw (or) 1vh, whichever is larger
+    </pre>
+</details> <br>
+
+ <!-- --------------------- Box Model --------------------- -->
+
+<details>
+    <summary>Box Model</summary>
+    <pre>
+            Box Model: The CSS box model is essentially a box that wraps around every HTML element. It consists of: margins -> borders -> padding -> content.
+        <br>
+        <img src="https://media.gcflearnfree.org/content/5ef2084faaf0ac46dc9c10be_06_23_2020/box_model.png" alt="Box Model" width="80%">
+    </pre>
+</details> <br>
+
+ <!-- --------------------- Margin & Padding --------------------- -->
+
+<details>
+    <summary>Margin & Padding</summary>
+    <pre>
+            
+            margin ( - top/right/bottom/left) [singleValue/ top right bottom left/ vertical (Top, Bottom) horizontal (left, right)/ top horizontal bottom]
+
+            padding ( - top/right/bottom/left) [singleValue/ top right bottom left/ vertical (Top, Bottom) horizontal (left, right)/ top horizontal bottom]
+    </pre>
+</details> <br>
+
+ <!-- --------------------- Border --------------------- -->
+
+<details>
+    <summary>Border</summary>
+    <pre>
+        
+            border ( - top/right/bottom/left)-width [thin/ medium/ thick/ value], border( - top/right/bottom/left)-color [color],
+            
+            border ( - top/right/bottom/left)-style [solid/ double/ groove/ ridge/ inset/ outset], border [width style color],
+            
+            border-image [border-image-source  border-image-slice  border-image-width  border-image-outset  border-image-repeat]
+    </pre>
+</details> <br>
+
+ <!-- --------------------- Outline --------------------- -->
+
+<details>
+    <summary>Outline</summary>
+    <pre>
+        
+            outline-width [value], outline-style [solid/ dotted/ dashed/ double/ groove/ ridge/ inset/ outset/ none]
+            
+            outline-color, outline [outline-width outline-style outline-color], outline-offset [value]
+    
+
+            -An outline is a line drawn outside the element's border.
+            -An outline-offset is a space between elements border and outline.
+    </pre>
+</details> <br>
+
+ <!-- --------------------- Box Shadow --------------------- -->
+
+<details>
+    <summary>Box Shadow</summary>
+    <pre>
+        
+            box-shadow: 10px 10px 10px 0px rebeccapurple;
+
+            box-shadow: horizontalOffset verticalOffset blurRadius blurSpread color
+    </pre>
+
+</details> <br>
+
+ <!-- --------------------- Background --------------------- -->
+
+<details>
+    <summary>Background</summary>
+    <pre>
+            
+            background-color, background-image [url(imgPath/link), background-gradient (linear-gradient/ repeating-linear-gradient/ repeating-radial-gradient/ radial-gradient/ conic-gradient/ repeating-conic-gradient)], 
+            
+            background-size [value / cover / contain], background-repeat [no repeat, repeat-x, repeat-y ],
+
+            background-position [top center, bottom center, top right, etc], background, background-attachment [scroll / fixed], 
+            
+            background-origin [padding-box/ content-box/ border-box], background-clip [text/ content-box/ padding-box/ border-box],
+            
+            background-blend-mode [normal/ screen/ overlay/ darken/ hard-light/ soft-light/ difference/ exclusion/ hue/ color/ saturation/ luminosity ]
+    
+            - If we set the background-size 100% the image will be stretched but if we use background-size:cover images we will be not stretch.
+            - Linear Gradients (goes down/up/left/right/diagonally) | Radial Gradients (defined by their center) | Conic Gradients (rotated around a center point)
+            - background-origin will not work if we use background-attachment (fixed)
+            - The background-origin property determines where the background is placed. While the background-clip determines what part of the background is shown.
+            - background: bg-color bg-image position/bg-size bg-repeat bg-origin bg-clip bg-attachment initial|inherit;
+
+            <!-- Ex:<br>
+
+            linear-gradient(to right,red,blue); <br>
+            linear-gradient(to left,red,blue); <br>  <br>
+            linear-gradient(to top,red,blue); <br>
+            linear-gradient(to bottom,red,blue); <br>
+            linear-gradient(to top right,red,blue); <br>
+            linear-gradient(to top left,red,blue); <br>
+            linear-gradient(to botttom right,red,blue); <br>
+            linear-gradient(to botttom left,red,blue); <br>
+            linear-gradient(45deg,red,blue); <br>
+            linear-gradient(-45deg,red,blue); <br>
+            repeating-linear-gradient(45deg,red 10%,blue 20%); <br>
+    
+            radial-gradient(red,blue 10%,blue 20%); <br>
+            radial-gradient(-45deg,red,blue); <br>
+            radial-gradient(circle,red,blue); <br>
+            radial-gradient(closest-side at 50% 50%,red,blue); <br>
+            radial-gradient(farthest-side at 50% 50%,red,blue); <br>
+            repeating-radial-gradient(45deg,red 10%,blue 20%); <br>
+
+            conic-gradient(red,blue,yellow); <br>
+            repeating-conic-gradient(red 10%,blue 20%,yellow 30%); <br> -->
+           
+            Difference between background-origin vs background-clip:
+            <img src="https://i.postimg.cc/qM47Yxmq/Difference.png" alt="Difference between background-origin vs background-clip">
+    </pre>
+   
+   <br> <br>
+</details> <br>
+
+ <!-- --------------------- Opacity --------------------- -->
+
+<details>
+        <summary>Opacity</summary> 
+        <pre>
+           
+            opacity [value]
+
+            
+            -The opacity property specifies the opacity/transparency of an element. Default value 1.
+        </pre>
+</details> <br>
+
+ <!-- --------------------- List --------------------- -->
+
+<details>
+    <summary>List</summary>
+    <pre>
+            
+            list-style-type [none/ disk/ circle/ square/ decimal/ decimal-leading-zero/ lower-roman/ upper-roman/ lower-alpha/ upper-alpha/ lower-greek],
+            
+            list-style-image [url('')], list-style-position [outside/ inside], list-style [type position image]
+    </pre>
+
+    <!-- Ex: 
+    ul li::before{
+        content:'';
+        width:10px;
+        heigth:10px;
+        display:inline-block;
+        background-image:url('');
+        background-size:cover;
+    } -->
+</details> <br>
+
+ <!-- --------------------- Float, Clear & Position --------------------- -->
+
+<details>
+    <summary>Float, Clear & Position</summary>
+    <pre> 
+            float [left/ right/ none/ inherit]
+
+            clear [none/ left/ right/ both/ inherit]
+
+            position [static(d)/ sticky/ fixed/ absolute/ relative]
+    
+
+            - When we use the float property, and we want the next element below (not on right or left), we will have to use the clear property (specifies what should happen with the element that is next to
+              a floating element).
+            - Absolutely positioned elements ignore the float property!
+            - Static positioned elements are not affected by the top, bottom, left, and right properties.
+            - Static is always positioned according to the normal flow of the page
+    </pre>
+</details> <br>
+
+ <!-- --------------------- Diaplay --------------------- -->
+
+<details>
+    <summary>Display</summary>
+    <pre>
+        
+            display [block/ none/ inline/ inline-block/ flex/ grid/ table/ table-row/ table-cell/ table-header-group/ table-footer-group/ table-caption/ table-column-group/ table-column/ table-row-group]
+    
+            - Compared to display: inline, the major difference is that display: inline-block allows to set a width and height on the element.Also, with display: inline-block, the top and bottom margins/paddings
+              are respected, but with display: inline they are not.
+            - In table colgourp>col> we can change only width and background color.
+    </pre>
+
+</details> <br>
+
+ <!-- --------------------- Overflow & Column --------------------- -->
+
+<details>
+    <summary>Overflow & Column</summary>
+    <pre>
+        
+            overflow [visible/ hidden/ scroll/ auto], overflow-x [scroll/ hidden], overflow-y [scroll/ hidden]
+      
+            column-count, column-width, columns [column-width column-count], column-gap, column-rule-width, 
+            
+            column-rule-color, column-rule-style, column-rule [column-rule-width column-rule-style column-rule-color], 
+            
+            column-span [none/ all], column-fill [balance(d)/ auto]
+    
+
+            - column-count = Defines the maximum number of columns	
+            - column-width = Defines the minimum width for each column
+            - The column-fill property specifies how to fill columns, balanced or not.
+
+    </pre>
+</details> <br>
+
+ <!-- --------------------- Transform --------------------- -->
+
+ <details>
+    <summary>Transform</summary>
+    <br>
+    <details>
+        <summary>2 D</summary>
+        <pre>
+        
+            transform, transform-origin, translateX(), translateY(), translate(x, y),
+
+            rotateX(deg), rotateY(deg), rotate(x, y), scaleX(width), scaleY(heigth),
+
+            scale(x, y), skewX(), skewY(), skew(x ,y), matrix()
+
+            - The transform property applies a 2D or 3D transformation to an element. This property allows you to rotate, scale, move, skew, etc., elements.
+            - The matrix() method combines all the 2D transform methods into one => matrix(scaleX(), skewY(), skewX(), scaleY(), translateX(), translateY())
+        </pre>
+    </details> <br>
+
+    <details>
+        <summary>3 D</summary>
+        <pre>
+        
+            transform, transform-origin, rotateZ(deg), translateZ(), scaleZ(),
+
+            rotate3d(x,y,z,angle), scale3d(x,y,z), translate3d(x,y,z), perspective, matrix3d()		
+        </pre>
+    </details> <br>
+</details><br>
+
+ <!-- --------------------- Transition --------------------- -->
+
+<details>
+    <summary>Transition</summary>
+    <pre>
+        
+            transition-property [all/ specificProperty], transition-delay [milliseconds/ seconds], transition-duration [milliseconds/ seconds],
+
+            transition-timing-function [ease (start slow > fast > end slowly) / linear (maintain same speed) / ease-in (slow start) /
+            ease-out (slow end) / ease-in-out (slow start and end) / steps(6)/ step-start/ step-end/ cubic-bezier]
+
+            transition [property duration timing-function delay]
+    
+
+            - transition properties allow elements to change values over a specified duration.
+            - Always specify the transition-duration property, otherwise the duration is 0, and the transition will have no effect.
+    </pre>
+</details> <br> 
+
+ <!-- --------------------- Animation & Keyframes --------------------- -->
+
+<details>
+    <summary>Animation & @keyframes</summary>
+    <pre>
+        
+            animation-name, animation-duration [s/ ms], animation-delay [s/ ms], animation-iteration-count [number/ infinite],
+            
+            animation-play-state [paused/ running], animation-direction [normal/ reverse/ alternate/ alternate-reverse],
+            
+            animation-timing-function, animation-fill-mode [none/ forward/ backward/ both], animation [name duration timing-function delay iteration-count direction]
+            
+            @keyframes animationName {
+                from {} (or) %
+                to {}
+            }
+
+
+            - An animation lets an element gradually change from one style to another.
+            - When you specify CSS styles inside the @keyframes rule, the animation will gradually change from the current style to the new style at certain times.
+            <br>
+            <details>
+                <summary>Difference B/W Transition & Animation</summary>
+            It’s easy to confuse CSS transitions and animations because they let you do similar things. Here are just a few examples:
+
+            ⭐ You can visualize property changes.
+            ⭐ You can set easing functions to control the rate at which property values change. 
+            ⭐ You can set the duration of the transition or animation.
+            ⭐ You can specify properties that interpret changes and initiate a reaction. 
+            ⭐ You can collect data concerning the events that cause the transition or animation to launch and use it to improve your marketing campaign.
+            
+            Despite their similarities, transitions and animations are different, and there are advantages and disadvantages to both. Here's a brief overview of their differences:
+
+            T - Can only move from initial to final state — no intermediate steps
+            T - Can only run once
+            T - Require a trigger to run (like mouse hover)
+            T - Run forwards when triggered and in reverse when trigger is removed
+            T - Easier to use with JavaScript
+            T - Best for creating a simple change from one state to another
+
+            A - Can move from initial to final state, with intermediate steps in between
+            A - Can loop infinitely thanks to animation-iteration-count property
+            A - Can be triggered but can also run automatically
+            A - Can run forwards, in reverse, or alternate directions
+            A - More difficult to use with JavaScript
+            A - Best for creating a complex series of movements
+            
+            <img src="https://iili.io/Hkt4ops.png" alt="" width="60%">
+        </details>
+    </pre>
+</details><br>
+
+ <!-- --------------------- Offset --------------------- -->
+
+ <details>
+    <summary>offset</summary> 
+    <pre>
+           offset [ offset-path offset-distance offset-rotate]
+       
+
+           - The offset property is used when animating an element along a path.
+           - The offset-path [path/ none] property creates a path for an animated element to follow. Ex: offset-path: path('M20,170 L100,20 L180,100 Z');
+    </pre>
+</details> <br>
+
+ <!-- --------------------- Min & Max Height/Width --------------------- -->
+
+<details>
+    <summary>Min & Max Height/Width</summary>
+    <pre>
+            
+           max-width [value], max-height [value], min-width [value], min-height [value]
+        
+           - Min -> Height will not be decreased once reached value. But it can increase as much contents wants.
+           - Max -> Height will not be increased once reached the value. But it can decrease depends upon contents.
+           - Using max-width will improve the browser's handling of small windows. This is important when making a site usable on small devices.
+    </pre>
+</details> <br>
+
+ <!-- --------------------- Counter --------------------- -->
+
+<details>
+    <summary>Counter</summary>
+    <pre>
+        
+           counter-reset [Name], counter-increment [sameName], content ["anyText "counter(sameName)":"]
+    
+           - content: Used with the ::before and ::after pseudo-elements, to insert generated content
+    </pre>
+</details> <br>
+
+ <!-- --------------------- Math Functions --------------------- -->
+
+<details>
+    <summary>Math functions</summary>
+    <pre>
+      
+            1. calc() -A mathematical expression. The result will be used as the value.The following operators can be used: + - * /
+            Ex: width: calc(100% - 100px);
+    
+            2. The max() function uses the largest value, from a comma-separated list of values, as the property value.
+            Ex: max(50%, 300px); i.e: max(width/height, min-width/height)
+
+            3. The min() function uses the smallest value, from a comma-separated list of values, as the property value.
+            Ex: min(50%, 300px); i.e: min(width/height, max-width/height)
+
+    </pre>
+</details> <br>
+
+ <!-- --------------------- Mask --------------------- -->
+
+<details>
+    <summary>Mask</summary> 
+    <pre>
+            mask-image [url/ gradient], mask-repeat [repeat/ no-repeat], mask-position [top/ center/ etc], mask-size [contain/ cover/ value]
+    
+
+           - The CSS mask-image property specifies a mask layer image.
+           - With CSS masking we can create a mask layer to place over an element to partially or fully hide portions of the element.
+           - The mask layer image can be a PNG image, an SVG image, a CSS gradient, or an SVG mask> element.
+    </pre>
+</details> <br>
+
+ <!-- --------------------- Other Properties --------------------- -->
+
+<details>
+    <summary>Other properties</summary>
+    <pre>        
+            writing-mode [horizontal-tb/ vertical-rl]
+
+            filter [blur/ brightness/ contrast/ grayscale/ hue-rotate/ invert/ opacity/ saturate/ sepia/ drop-shadow]
+
+            object-fit [fill(d)/ contain/ cover/ none/ scale-down]
+
+            object-position [xValue yValue]
+
+            resize [none/ verical/ horizontal/ both]
+
+            box-sizing [border-box/ content-box]
+
+            var( --name (must start with two dashes), value(The fallback value) )
+
+            z-index [value]
+
+            box-reflect [below/ above/ left/ right  positionOffset  positionOffsetGradient]
+
+            aspect-ratio
+
+            cursor [auto/ crosshair/ default/ pointer/ move/ text/ wait/ help/ e-resize/ ne-resize/ nw-resize/ n-resize/ se-resize/ sw-resize/ s-resize/ w-resize/] 
+            
+            @media  mediatype and (expressions) {
+                // Css Styling
+                // mediatype [all/ print/ screen/ speech]
+                //@media screen and (max-width: 600px) {}
+            }
+
+
+            - drop-shadow gives the shadow of the box only for visible parts. But box-shadow create shadow for all side even though it is not visible.
+            - The CSS object-fit property is used to specify how an img> or video> should be resized to fit its container. It helps to keep the aspect ratio of img or video.
+            - The CSS object-position property is used to specify how an img> or video> should be positioned within its container.
+            - The resize property specifies if (and how) an element should be resizable by the user.The resize property does not apply to inline elements or to block elements where overflow="visible".
+              So, make sure that overflow is set to "scroll", "auto", or "hidden".
+            - The CSS box-sizing property allows us to include the padding and border in an element's total width and height.
+            - The var() function is used to insert the value of a CSS variable.
+              CSS variables have access to the DOM, which means that you can create variables with local or global scope, change the variables with JavaScript, and change the variables based on media queries.
+              A good way to use CSS variables is when it comes to the colors of your design. Instead of copy and paste the same colors over and over again, you can place them in variables.
+            - z-index property specifies the stack order of an element (can have a positive or negative stack order)
+            - z-index only works on positioned elements (position: absolute, position: relative, position: fixed, or position: sticky) and flex items.
+            - The box-reflect property is used to create an image reflection.radial-gradient and conic-gradient will not work. linear-gradient can run.
+            - The cursor property specifies the mouse cursor to be displayed when pointing over an element.
+            - The aspect-ratio property allows you to define the ratio between width and height of an element. If aspect-ratio and width properties are set, the height will follow in the defined aspect ratio.
+            - The @media rule, introduced in CSS2, made it possible to define different style rules for different media types.
+
+    </pre>
+</details> <br>
+
+ <!-- --------------------- Flex Box --------------------- -->
+
+<details>
+    <summary>Flex Box</summary>
+    <pre>
+        
+            Container properties: 
+
+            display [flex/ inline-flex], flex-direction [row/ column/ row-reverse/ column-reverse], 
+        
+            flex-wrap [wrap/ no-wrap/ wrap-reverse], flex-flow (flex-direction  flex-wrap), column-gap, row-gap, gap,
+
+            justify-content (x axis) [flex-start/ flex-end/ space-between/ space-around/ center], 
+        
+            align-content (cross axis) [flex-start/ flex-end/ baseline/ center/ stretch/ space-around/ space-between],
+
+            align-items (cross axis) [stretch/ center/ flex-start/ flex-end/ baseline]
+ 
+
+            Items properties: 
+
+            flex-grow, flex-shrink, order, flex-basis, align-self, flex (flex-grow flex-shrink flex-basis - (0 1 auto))
+    
+
+            - 'align-items' set space for each row but 'align-content' set space for overall
+            - Either row or column (1D). Alternative for display: block/inline/inline-block.
+            - flex-basis works only on the main axis.If flex-direction is row, flex-basis controls width.
+              But when flex-direction is column, flex-basis controls height For example, if you're in flex-direction: column, the width property would be needed for sizing flex items horizontally.
+            - Advantage: Easy to align in vertcial centering, ability to fill extra space without use of JS, can have display order reversed or rearranged at the style layer. 
+   </pre>
+</details> <br>
+
+ <!-- --------------------- Grid --------------------- -->
+
+<details>
+    <summary>Grid</summary>
+    <pre>
+            Container properties: 
+
+            display [grid/ inline-grid], grid-template-columns [columnSize columnSize(2 columns)/ repeat(number, Size)], 
+            
+            grid-template-rows [rowSize rowSize(2 rows)/ repeat(number, Size)], grid-template [row/ column], column-gap,
+            
+            row-gap, gap [row/ column], justify-items (x axis) [stretch/ start/ center/ end], align-items (y axis) [stretch/ start/ center/ end],
+
+            place-items [align-items justify-items], justify-content [start/ center/ end/ space-between/ space-around/ space-evenly], 
+            
+            align-content [start/ center/ end/ space-between/ space-around/ space-evenly], place-content [align-content  justify-content],
+            
+            grid-auto-columns [size], grid-auto-rows [size], grid-auto-flow [row/ column], grid-template-area
+
+
+            Items properties: 
+
+            grid-column-start [number/ span No], grid-column-end, grid-row-start, grid-row-end, grid-column [start/end],
+            
+            grid-row [start/end], justify-self [stretch/ start/ center/ end], align-self [stretch/ start/ center/ end],
+            
+            place-self [align-self justify-self], grid-area
+
+
+   
+            - Both row and column (2D). Alternative for display: block/inline/inline-block/flex.
+            - Advantage: Easy to align in vertcial centering, ability to fill extra space without use of JS, can have display order reversed or rearranged at the style layer. 
+            - justify/align-items: Each block
+            - justify/align-content: Whole block
+   </pre>
+</details> <br>
+
+ <!-- --------------------- Other --------------------- -->
+
+<details>
+    <summary>Other</summary>
+
+    <pre>
+            -> The currentcolor keyword is like a variable that holds the current value of the color property of an element.
+            -> The inset property sets the distance between an element and the parent element. The inset property is a shorthand property for the following properties: top, right, bottom, left. For this property to take effect it has to have the position property specified.
+            -> The isolation property defines whether an element must create a new stacking content (prevent element from applying blend property). The isolation property is helpful when used with background-blend-mode or mix-blend-mode.
+            -> The pointer-events [none/ auto] property defines whether or not an element reacts to pointer events.
+            -> The image-rendering [auto/ smooth/ high-quality/ crisp-edges/ pixelated] property specifies the type of algorithm to be used for image scaling.
+            -> The quotes property sets the type of quotation marks for quotations.
+            -> The scroll-behavior property specifies whether to smoothly animate the scroll position, instead of a straight jump, when the user clicks on a link within a scrollable box.
+            -> The text-orientation [mixed/ upright/ sideways/ sideways-right/ use-glyph-orientation] property specifies the orientation of characters.Works only when writing-mode is set to vertical.
+            -> The user-select [none/ auto] property specifies whether the text of an element can be selected.
+            -> The visibility [visible/ hidden] property specifies whether or not an element is visible. Hidden elements take up space on the page but display:none not. 
+            -> The caption-side [top/ bottom] property specifies the placement of a table caption.
+            -> The caret-color property specifies the color of the cursor (caret) in inputs, textareas, or any element that is editable.
+            -> The clip-path property lets you clip an element to a basic shape or to an SVG source. The clip-path property will replace the deprecated clip property.
+            -> The content property is used with the ::before and ::after pseudo-elements, to insert generated content.
+            -> The empty-cells [show/ hide] property sets whether or not to display borders on empty cells in a table.
+            -> The border-spacing property sets the distance between the borders of adjacent cells. This property works only when border-collapse is separate.
+            -> The accent-color property specifies the accent color for user-interface controls like: input type="checkbox">, input type="radio">, input type="range"> and progress>.
+            -> The tab-size property specifies the width of a tab character.In HTML, the tab character is usually displayed as a single space-character, except for some elements, like textarea>
+               and pre> and the result of the tab-size property will only be visible for those elements.
+            -> padding-inline = padding-left & padding-right. padding-block = padding-top & padding-bottom. It also same for margin and border.
+
+
+
+            -> Make it center:
+               1 => padding: 70px 0; text-align: center; (Normal text)
+               2 => line-height: sameHeightValue; height: value; text-align: center; (Normal text)
+               3 => margin:0; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%) (Normal text)
+               4 => margin: 0 auto; display: block; (Image) 
+            -> An image sprite is a collection of images put into a single image.
+            -> The !important rule in CSS is used to add more importance to a property/value than normal.It will override ALL previous styling rules for that specific property on that element!
+            -> CSS supports 140+ color names, HEX values, RGB values, RGBA values, HSL values, HSLA values, and opacity.
+               (hsla-hue, saturation, lightness, alpha) (rgba-red, green, blue, alpha)
+            -> The inherit keyword specifies that a property should inherit its value from its parent element.
+            -> Sass is a CSS pre-processor.Sass reduces repetition of CSS and therefore saves time.
+            -> The @import rule allows you to import a style sheet into another style sheet.The @import rule must be at the top of the document.
+               The @import rule also supports media queries, so you can allow the import to be media-dependent.
+               import "navigation.css"; /* Using a string */ or
+            @import url("navigation.css"); /* Using a 
+
+        
+            <a href="https://www.w3schools.com/howto/" target="_blank">CSS Tasks and Snippets</a>
+     
+      </pre>
+</details>
+
+    
+<script>
+    var det=document.getElementsByTagName("details"); 
+    var btn = document.getElementById('btn') 
+
+    //--- toggle state
+     function get(){
+        for(details of det){
+            details.toggleAttribute("open")
+        }
+      }
+
+
+    //Toggle light/dark mode
+    var theme = document.getElementById("tog")
+    var body = document.body
+
+    function run(){
+        body.classList.toggle("dark-mode");
+        // theme.classList.toggle("bulp")
+    }
+
+</script>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+                xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+                layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Backend</title>
+</head>
+<body>
+<section layout:fragment="body">
+
+    <h1 class="text-center mt-3">Following are some basics of backend server working</h1>
+    <div class=" container mr-3">
+    <h1>Internet :</h1>
+    <h3>The Internet is a global network of computers connected to each other which communicate through a standardized set of protocols.</h3>
+   <h5>No one runs the internet. It’s organized as a decentralized network of networks.
+       Thousands of companies, universities, governments,
+       and other entities operate their own networks and exchange traffic with each other based on voluntary interconnection agreements.</h5>
+
+        <h1>Internet protocols :</h1>
+        <h3>Internet protocols are sets of rules that dictate how data is transmitted and received over the internet</h3>
+        <h3>Here are some key internet protocols:</h3>
+        <h5>Transmission Control Protocol (TCP)</h5>
+        <h5>Internet Protocol (IP)</h5>
+        <h5>Hypertext Transfer Protocol (HTTP):</h5>
+        <h5>File Transfer Protocol (FTP)</h5>
+        <h5>Simple Mail Transfer Protocol (SMTP)</h5>
+        <h5>Post Office Protocol (POP)</h5>
+        <h5>Internet Message Access Protocol (IMAP)</h5>
+        <h5>Domain Name System (DNS)</h5>
+        <h5>Dynamic Host Configuration Protocol (DHCP)</h5>
+        <h5>Secure Shell (SSH)</h5>
+        <h5>These protocols work together to enable the functionality of the internet and facilitate communication between devices and systems.</h5>
+
+        <h1>IP :</h1>
+        <h3>IP addresses are fundamental to internet communication, allowing devices to locate and communicate with each other. They are used in various networking protocols, and understanding them is essential for managing and troubleshooting network connectivity issues.</h3>
+
+        <h1>What is HTTP? :</h1>
+        <h3>HTTP is a TCP/IP-based application layer communication protocol that standardizes how clients and servers communicate with each other</h3>
+        <h5>It defines how content is requested and transmitted across the internet. <br>
+            By application layer protocol, I mean that it’s simply an abstraction layer that standardizes how hosts (clients and servers) communicate. <br>
+            HTTP itself depends on TCP/IP to get requests and responses between the client and server. By default, TCP port 80 is used, but other ports can also be used. HTTPS, however, uses port 443.<br>
+            HTTP defines various methods or verbs that indicate the action to be performed on a resource. Common methods include GET (retrieve a resource), POST (submit data to be processed to a specified resource), PUT (update a resource), DELETE (delete a resource), etc.
+        </h5>
+
+        <h1>DNS :</h1>
+        <h3>The Domain Name System (DNS) is the phonebook of the Internet. Humans access information online through domain names, like nytimes.com or espn.com. Web browsers interact through Internet Protocol (IP) addresses. DNS translates domain names to IP addresses so browsers can load Internet resources.</h3>
+    </div>
+</section>
+</body>
+</html>

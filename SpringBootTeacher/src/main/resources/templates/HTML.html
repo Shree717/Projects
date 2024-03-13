@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML</title>
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/143/143655.png" type="image/x-icon">
+    <style>
+      .Mode{
+        background-color: black;
+        color: slateblue;
+      }
+      h3,h2,.button {
+        text-align: center;
+      }
+      #ContentNavigate{
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        gap:1vw;
+      }
+      button{
+<!--         background-color: royalblue;-->
+         color: white;
+         cursor: pointer;
+         outline: none;
+         border:none;
+         border-radius: 5%;
+         width: max-content;
+         height: 3vh;
+      }
+<!--      button:hover{-->
+<!--        transform: scale(1.1);-->
+<!--      }-->
+<!--      a{-->
+<!--        text-decoration: none;-->
+<!--        width: max-content;-->
+<!--        background: royalblue;-->
+<!--        color: white;-->
+<!--        padding: 0.5vw;-->
+<!--        border-radius: 0.2vw;-->
+<!--      }-->
+<!--      a:hover{-->
+<!--        transform: scale(1.1);-->
+<!--      }-->
+    </style>
+    <script>
+
+      function Theme(){
+        let body = document.getElementsByTagName('body')[0]
+        body.classList.toggle('Mode')
+      }
+
+    </script>
+</head>
+
+<body>
+
+<section layout:fragment="body">
+
+    <h2 class="container mt-3">HTML Tags : Basics to Advance</h2>
+    <div class="button">
+      <button onclick="Theme()">Theme</button>
+    </div>
+    <br><br>
+
+    <div id="ContentNavigate">
+    <a href="#MainTags">Main Tags</a>
+    <a href="#BasicTags">Basic Tags</a>
+    <a href="#FormattingTags">Formatting Tags</a>
+    <a href="#ContentSeparating">Content Separating Tags</a>
+    <a href="#ListTags">List Tags</a>
+    <a href="#Table">Table Tags</a>
+    <a href="#Form">Form Tags</a>
+    <a href="#Media">Media Tags</a>
+    <a href="#Other">Other Tags</a>
+    <a href="#NotSupported">Not Supported Tags</a>
+    <a href="#Global">Global Attributes</a>
+    </div>
+
+    <!-- Main Tags -->
+
+    <h3 id="MainTags"><mark>Main Tags</mark></h3>
+
+    1.Comment - Gives human readable description or explanation of the code for developers.
+    <!-- <h1>Hello </h1> --> 
+    <br><br>
+
+    2.All HTML documents must start with a !DOCTYPE> declaration.
+      The declaration is not an HTML tag. It is an "information" to the browser about what document type to expect.
+      <!-- <!DOCTYPE html> -->
+    <br><br>
+
+    3.The html> tag represents the root of an HTML document and container for all other HTML elements (except for the !DOCTYPE> tag). It is have 'lang="en"' attribute, specifies the document language. <br/><br/>
+
+    4.The head> element is a container for metadata (data about data) and should placed between html> starting & the body> tag . Contains title> (required in every 
+    HTML document) style> base> link> meta> script> noscript> elements.<br/><br/>
+
+    5.The meta> tag defines metadata about an HTML document. Metadata is data (information) about data. Metadata is used by browsers (how to display 
+    content or reload page), search engines (keywords), and other web services (control over the viewport).
+    <!-- <head>
+      <meta charset="UTF-8">
+      <meta name="description" content="Free Web tutorials">
+      <meta name="keywords" content="HTML, CSS, JavaScript">
+      <meta name="author" content="John Doe">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head> --><br/><br/>
+
+    6.The title> tag defines the title of the document. The title must be text-only, and it is shown in the browser's title bar or in the page's tab.
+    The title> tag is required in HTML documents. The contents of a page title is very important for search engine optimization (SEO). The page title
+    is used by search engine algorithms to decide the order when listing pages in search results.<br/><br/>
+
+    7.The link> tag is most often used to link to external style sheets or to add a favicon to your website.The "rel" attribute in link> defines the relationship between the current document and an external resource. <br/><br/>
+
+    8.The style> tag is used to define style information (CSS) for a document.<br/><br/>
+
+    9.The body> tag defines the document's body.
+    The body> element contains all the contents of an HTML document, such as headings, paragraphs, images, hyperlinks, tables, lists, etc.<br><br>
+
+    10.The script> tag is used to embed internal or external client-side script (JavaScript).<br/><br/>
+
+    
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+
+    <!-- Basic Tags -->
+
+    <h3 id="BasicTags"><mark>Basic Tags</mark></h3>
+
+    11.The h1> to h6> tags are used to define HTML headings. we should use only one h1 tag in document and that should be main title of the document. Because this content used by search engine when resulting pages.<br/><br/>
+
+    12.The p> tag defines a paragraph.<br/><br/>
+
+    13.The div> tag defines a division or a section in an HTML document.<br><br>
+
+    14.The span> tag is an inline container used to mark up a part of a text, or a part of a document. The span> tag is much like the div> element, but div> is
+    a block-level element and span> is an inline element.<br/><br/>
+
+    15.The br> tag inserts a single line break.<br><br>
+
+    16.The hr> tag used to insert line break and create horizontal line that helps to separate content (or define a change) in an HTML page.<br/><br/>
+
+    
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+
+    <!-- Formatting Tags -->
+
+    <h3 id="FormattingTags"><mark>Formatting Tags</mark></h3>
+
+    17.The b> tag used to display the text in bold without any extra importance. <br><br>
+
+    18.The strong> tag is used to define text with strong importance. The content inside is typically displayed in bold.<br/><br/>
+
+    19.The u> tag displayed the text with an underline. Mostly used for misspelled words.<br/><br/>
+
+    20.The bdo> (Bi-Directional Override) tag is used to override the current text direction by using attribute called "dir".
+    <!-- <bdo dir="rtl">
+        This text will go right-to-left.
+    </bdo>
+    ===> dir attribute have 'rtl' and 'ltr' -->
+    <br><br>
+
+    21.The del> tag defines text that has been deleted from a document. Browsers will usually strike a line through deleted text.
+    <!-- <p>My favorite color is <del>blue</del> <ins>red</ins>!</p> --> <br><br>
+
+    22.The ins> tag defines a text that has been inserted into a document. Browsers will usually underline inserted text (cite - Specifies a URL to a document that explains the reason why the text was inserted/changed, datetime -Specifies the date and time when the text was inserted/changed
+    ). 
+    (Used with del>) <br/><br/>
+
+    23.The s> tag specifies text that is no longer correct, accurate or relevant. The text will be displayed with a line through it.The s> tag should not be
+    used to define deleted text in a document, use the del> tag for that.<br/><br/>
+
+    24.The em> tag is used to define emphasized text. The content inside is typically displayed in italic. It can be used for changing the meaning of the content.
+    A screen reader will pronounce the words in em> with an emphasis, using verbal stress. <br><br>
+    
+    25.The i> tag defines a part of text in an alternate voice or mood often used to indicate a technical term, a phrase from another language, a thought, 
+    a ship name, etc.. The content inside is typically displayed in italic. em> and i> both are used to display the text in italic style but em> content pronounce differently with verbal stress.<br/><br/>
+    
+    26.The address> tag defines the contact information for the author/owner of a document or an article.
+    The text in the address element usually renders in italic, and browsers will always add a line break before and after the address element.
+    <!-- <address>
+      Visit us at:
+      Example.com
+      Box 564, Disneyland
+    </address> -->
+    <br><br>
+
+    27.The var> tag is used to defines a variable in programming or in a mathematical expression. The content inside is typically displayed in italic. Italic Tags: i, em, address, var<br/><br/>
+
+    28.The mark> tag defines text that should be marked or highlighted.<br/><br/>
+
+    29.The pre> tag defines preformatted text.Text in a pre> element is displayed in a fixed-width font, and the text preserves both spaces and line breaks.
+    The text will be displayed exactly as written in the HTML source code.<br/><br/>
+
+    30.The code> tag is used to define a piece of computer code. The content inside is displayed in the browser's default monospace font.<br><br>
+
+    31.The kbd> tag is used to define keyboard input. The content inside is displayed in the browser's default monospace font.<br/><br/>
+
+    32.The samp> tag is used to define sample output from a computer program. The content inside is displayed in the browser's default monospace font. monospace  tags- code, kbd, samp<br/><br/>
+
+    33.The small> tag defines smaller text (like copyright and other side-comments).<br/><br/>
+
+    34.The sub> tag defines subscript text. Subscript text appears half a character below the normal line. Subscript text can be used for chemical formulas, like H2O.
+    The sup> tag defines superscript text. Superscript text appears half a character above the
+    normal line. Ex: Mathematical formulas<br/><br/>
+
+
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+
+    <!-- Content separating -->
+
+    <h3 id="ContentSeparating"><mark>Content separating</mark></h3>
+
+    35.The header> element represents a container for introductory content or a set of navigational links and cannot be placed within a footer>, address> or 
+    another header> element.<br/><br/>
+
+    36.The nav> tag defines a set of navigation links (only for major blocks of navigation links).<br/><br/>
+
+    37.The main> tag specifies the main content of a document.The content inside the main> element should be unique to the document. It should not contain 
+    any content that is repeated across documents such as sidebars, navigation links, copyright information, site logos, and search forms.Note: There must 
+    not be more than one main> element in a document.<br/><br/>
+
+    38.The article> specifies independent, self-contained content.<br><br>
+
+    39.The aside> defines some content aside from the content it is placed in.<br><br>
+
+    40.The section> tag defines a section in a document.<br/><br/>
+
+    41.The footer> tag defines a footer for a document or section. (Copyright, contact information, authorship information). <br/><br/>
+
+
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+
+    <!-- List Tags -->
+
+    <h3 id="ListTags"><mark>List Tags</mark></h3>
+
+    42.The ol> tag defines an ordered list. An ordered list can be numerical or alphabetical (reversed, start, type -1/A/a/I/i). Number type is default. The ul> tag defines an 
+    unordered (bulleted) list (type -circle/disc/square). The li> tag is used (defines a list item) inside ordered lists(ol>) and unordered lists (ul>).<br/><br/>
+
+    43.The dl> tag defines a description list. The dt> tag defines a term/name in a description list. The dd> tag is used to describe a term/name in a description list.
+    (description list => define term => describe term)
+    <!-- <dl>
+        <dt>Coffee</dt>
+        <dd>Black hot drink</dd>
+        <dt>Milk</dt>
+        <dd>White cold drink</dd>
+    </dl> --> <br><br>
+
+    44.The data> tag is used to add a machine-readable translation of a given content (provides both machine-readable and human-readable).
+    We use a data element where there is a need to make the server or computer understand the content written on the webpage.
+    If the content is time- or date-related, the time> element must be used.
+    <!-- <ul>
+        <li><data value="21053">Cherry Tomato</data></li>
+        <li><data value="21054">Beef Tomato</data></li>
+        <li><data value="21055">Snack Tomato</data></li>
+    </ul> --> <br><br>
+
+
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+
+    <!-- Table and Related Tags -->
+
+    <h3 id="Table"><mark>Table and Related Tags</mark></h3>
+
+    45.The table> tag defines an HTML table.The thead> tag is used to group header content in an HTML table.The tbody> tag is used to group the body content
+    in an HTML table.The tr> tag defines a row in an HTML table.The th> tag defines a header cell in an HTML table.The td> tag defines a standard data cell
+     in an HTML table.The tfoot> tag is used to group footer content in an HTML table.
+     <!-- <table>
+       <thead>
+         <tr>
+           <th>Month</th>
+           <th>Savings</th>
+         </tr>
+       </thead>
+       <tbody>
+         <tr>
+           <td>January</td>
+           <td>$100</td>
+         </tr>
+         <tr>
+          <td>February</td>
+           <td>$80</td>
+         </tr>
+       </tbody>
+       <tfoot>
+         <tr>
+           <td>Sum</td>
+           <td>$180</td>
+         </tr>
+       </tfoot>
+     </table> --><br/><br/>
+    
+    46.The caption> tag defines a table caption.
+    The caption> tag must be inserted immediately after the table> tag.<br><br>
+     
+    47.The colgroup> tag is useful for applying styles to entire columns, instead of repeating the styles for each cell, for each row.
+       The col> tag specifies column properties for each column within a colgroup> element. The properties that can be controlled are border, 
+       background, width, visibility. So we can control the cell color (background-color) in a column, we cannot control the color of the text. 
+       <!-- 
+        <table>
+        <caption> Table Caption</caption>
+
+        <colgroup>
+          <col span="1" style="background-color:red">
+          <col style="background-color:yellow">
+          <col style="background-color:royalblue">
+        </colgroup>
+
+        <tr>
+          <th>ISBN</th>
+          <th>Title</th>
+          <th>Price</th>
+        </tr>
+
+        <tr>
+          <td>3476896</td>
+          <td>My first HTML</td>
+          <td>$53</td>
+        </tr>
+
+        <tr>
+          <td rowspan="2">135896</td>
+          <td>My Data 1</td>
+          <td>$63</td>
+        </tr>
+
+        <tr>
+            <td>My Data 2</td>
+            <td>$93</td>
+        </tr>
+
+      </table>
+        --><br><br>
+
+
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+
+    <!-- Form and All Form Elements -->
+
+    <h3 id="Form"><mark>Form and All Form Elements</mark></h3>
+
+    48.The form> tag is used to create an HTML form for user input. Contains input> textarea> button> select> option> optgroup> fieldset> label> output> elements.
+    <br/><br/>
+
+    49.The input> tag specifies an input field where the user can enter data and it can be displayed in several ways, depending on the type attribute. (
+    Input Types: text, email, password, number, checkbox, radio, button, file, date, datetime-local, month, week, color, image, hidden, range, search, submit, tel, time, url).
+    The name attribute is probably the most important attribute of the input> element. It isn't strictly required for validation, but you should never omit it. 
+    When a form is submitted to the server, the data from the form is included in an HTTP request. The data is packaged as a series of name-value pairs. 
+    The name for each name-value pair is the name attribute of each input, and the value is the user-entered (or pre-specified) value. 
+    Without the name attribute, an input> element cannot provide its value to the server on form submission.
+    <!--
+    <input type="checkbox"> checkbox <br><br>
+    <input type="color"> color<br><br>
+    <input type="button"> color<br><br>
+    <input type="date"> date<br><br>
+    <input type="datetime-local"> datetime-local<br><br>
+    <input type="file"> file<br><br>
+    <input type="email"> email<br><br>
+    <input type="hidden"> hidden<br><br>
+    <input type="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnLce_iUwvQ4jmhB3WHyjRsKCWIofN8dEFGmfKhCD3vDsUtuPYZsw9Y7IPoWViymLv5dE&usqp=CAU" width="100px"> submit using image as a icon<br><br>
+    <input type="month"> month<br><br>
+    <input type="number"> number<br><br>
+    <input type="password"> password<br><br>
+    <input type="radio"> radio<br><br>
+    <input type="range"> range<br><br>
+    <input type="search"> search<br><br>
+    <input type="submit"> submit<br><br>
+    <input type="tel"> tel<br><br>
+    <input type="text"> text<br><br>
+    <input type="time"> time<br><br>
+    <input type="url"> url<br><br>
+    <input type="week"> week<br><br> -->
+    <br/><br/>
+
+    50.The label> tag defines a label for several elements. (input> ,meter>, progress>, select>, textarea>). Users who have difficulty clicking on very 
+    small regions (such as checkboxes) - because when a user clicks the text within the label> element, it toggles the input (this increases the hit area). 
+    (for, form -Attributes). Mostly used to identify the input element for users."Input - id" and "label -for" should be equal.<br/><br/>
+
+    51.The fieldset> tag is used to group related elements in a form. The legend> tag is used to define a caption for the fieldset> element.
+    <!-- <form action="/action_page.php">
+        <fieldset>
+          <legend>Form</legend>
+          <label for="fname">First name:</label>
+          <input type="text" id="fname" name="fname"><br><br>
+          <label for="lname">Last name:</label>
+          <input type="text" id="lname" name="lname"><br><br>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email"><br><br>
+          <label for="birthday">Birthday:</label>
+          <input type="date" id="birthday" name="birthday"><br><br>
+          <input type="submit" value="Submit">
+        </fieldset>
+      </form> --><br><br>
+    
+    52.The textarea> tag defines a multi-line text input control.The textarea> element is often used in a form, to collect user inputs like comments or
+    reviews.The size of a text area is specified by the cols and rows attributes (or with CSS).
+     <!-- <label for="w3review">Review of W3Schools:</label>
+     <textarea id="w3review" name="w3review" rows="4" cols="50">
+     At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.
+     </textarea> --><br/><br/>
+
+    53.The select> element is most often used in a form, to collect user input by create a drop-down list. The option> tag 
+    defines an option in a select list (value - Attribute). option> elements go inside a select>, optgroup>, or datalist> element.The optgroup> tag is 
+    used to group related options by using "label" attribute in a select> element. In option> tag we can use "selected" attribute for provide default value.
+       <!-- <label for="cars">Choose a car:</label>
+       <select  name="cars" id="cars">
+         <optgroup label="Swedish Cars">
+           <option value="volvo">Volvo</option>
+           <option value="saab">Saab</option>
+         </optgroup>
+         <optgroup label="German Cars">
+           <option value="mercedes">Mercedes</option>
+           <option value="audi">Audi</option>
+         </optgroup>
+       </select> --><br/><br/>
+
+    54.The datalist> tag specifies a list of pre-defined options for an input> element. The datalist> element's id attribute must be equal to the input> 
+    element's list attribute. Compare to select> here user can give an input and filter values from the option list. Also they can give their custom values. Also it provides auto-complete feature.
+    <!-- <input list="browsers" name="browser" id="browser">
+    <datalist id="browsers">
+      <option value="Edge">
+      <option value="Firefox">
+      <option value="Chrome">
+      <option value="Opera">
+      <option value="Safari">
+    </datalist> --> <br><br>
+
+    55.The progress> tag represents the completion progress of a task (conjunction with JavaScript to display the progress of a task).
+    <!-- <label for="file">Downloading progress:</label>
+    <progress id="file" value="32" max="100"> 32% </progress> --><br/><br/>
+
+    56.The meter> tag defines a scalar measurement within a known range, or a fractional value. This is also known as a gauge.
+      <!-- <label for="disk_c">Disk usage C:</label>
+      <meter id="disk_c" value="2" min="0" max="10">2 out of 10</meter><br>
+  
+      <label for="disk_d">Disk usage D:</label>
+      <meter id="disk_d" value="0.6">60%</meter> --><br/><br/>
+    
+
+
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+
+    <!-- Media & Links Tags -->
+
+    <h3 id="Media"><mark>Media & Links Tags</mark></h3>
+
+    57.The a> tag defines a hyperlink, which is used to link from one page to another (or) jump one content to another content.
+    The most important attribute of the a> element is the href attribute, which indicates the link's destination.
+    target attribute decides which tab it should open (same or new tab).
+    <!-- <a href="https://www.google.com" target="_blank">Google</a>  -->
+    <br><br>
+
+    58.The base> tag specifies the base URL by "href" attribute for all relative URL's in a document.
+     It must inside head> tag. we should use the base> tag only once on one HTML page. If you use it multiple times, only the first one will be validated and the rest will be ignored.
+    <!-- <head>
+        <base href="https://www.w3schools.com/" target="_blank">
+    </head> -->
+    <br><br>
+
+    59.The img> tag is used to embed an image in an HTML page. Images are not technically inserted into a web page. Images are linked to web pages. The img> 
+    tag creates a holding space for the referenced image (src,alt -Attributes). Accepted image formats include gif, jpg and png. Most browsers also support newer formats: apng, avif, and webp.<br/><br/>
+
+    60.The figcaption> tag defines a caption for a figure> element.The figure> tag specifies self-contained content, like illustrations, diagrams, 
+    photos, code listings, etc.
+    <!-- <figure>
+        <img src="pic_trulli.jpg" alt="Trulli" style="width:100%">
+        <figcaption>Fig.1 - Trulli, Puglia, Italy.</figcaption>
+    </figure> --> <br><br>
+
+    61.The area> tag defines area inside an image map (an image map is an image with clickable areas).
+    The map> tag is used to define an image map. The img> tag is used to embed an image in an HTML page. "usemap" #attribute in img> should match with "name" attribute in map> tag.
+
+    <!-- <img src="https://www.w3schools.com/tags/workplace.jpg" alt="Workplace" usemap="#workmap" width="400" height="379">
+
+    <map name="workmap">
+     <area shape="rect" coords="34,44,270,350" alt="Computer" href="https://www.w3schools.com/w3images/mac.jpg"> /* rect=> top left + bottom right */
+     <area shape="poly" coords="290,172,333,250" alt="Phone" href="https://www.w3schools.com/w3images/cellphone.jpg"> /* ploy=> 1st pont + 2nd + 3rd point */
+     <area shape="circle" coords="337,300,44" alt="Cup of coffee" href="https://www.w3schools.com/w3images/coffeehouse2.jpg"> /* circle=> center point + radius */
+    </map> --> 
+    <br><br>
+
+    62.The source> tag is used to specify multiple media resources for media elements, such as video>, audio>, and picture>.<br/><br/>
+
+    63.The picture> tag gives web developers more flexibility in specifying image resources.The most common use of the picture> element will be for art 
+    direction in responsive designs. Instead of having one image that is scaled up or down based on the viewport width, multiple images can be designed 
+    to more nicely fill the browser viewport.The picture> element contains two tags: one or more source> tags with srcset & media attribute and one img> tag.The browser will look for
+    the first source> element where the media query matches the current viewport width, and then it will display the proper image (specified in the srcset
+    attribute). The img> element is required as the last child of the picture> element, as a fallback option if none of the source tags matches.
+    <!-- 
+      <picture> 
+      <source media="(max-width:600px)" srcset="./2.png" width="50vw" height="50vh"/>
+      <source media="(max-width:800px)" srcset="./y.png" width="50vw" height="50vh"/>
+      <img src="./Files/8555529.webp" width="50vw">
+      </picture>
+     --><br/><br/>
+
+    64.The video> tag is used to embed video content in a document, such as a movie clip or other video streams. Attributes: width, height, controls, autoplay, muted, loop, poster, src, type. If audi is inserted that can paly but there will be no video. There are three supported video formats in HTML: MP4, WebM, and OGG. The poster attribute specifies an image to be shown while the video is downloading, or until the user hits the play button. If this is not included, the first frame of the video will be used instead.
+    <!-- <video width="320" height="240" controls autoplay muted>
+      <source src="movie.mp4" type="video/mp4">
+      <source src="movie.ogg" type="video/ogg">
+      Your browser does not support the video tag.
+    </video> --><br/><br/>
+
+    65.The audio> tag is used to embed sound content in a document, such as music or other audio streams. Attributes: autoplay, controls, loop, muted. If video is inserted that palyed as audio file. There are three supported audio formats in HTML: MP3, WAV, and OGG.
+    <!-- <audio controls>
+        <source src="horse.ogg" type="audio/ogg">
+        <source src="horse.mp3" type="audio/mpeg">
+    </audio> -->
+    <br><br>
+
+    66.The track> tag specifies text tracks for video> element.This element is used to specify subtitles, caption files or other files containing
+    text, that should be visible when the media is playing. Tracks are formatted in WebVTT format (.vtt files). Attributes: default, src, srclang, kind, label.
+    <!-- 
+      <video width="320" height="240" controls>
+      <source src="forrest_gump.mp4" type="video/mp4">
+      <source src="forrest_gump.ogg" type="video/ogg">
+      <track src="fgsubtitles_en.vtt" kind="subtitles" srclang="en" label="English">
+      <track src="fgsubtitles_no.vtt" kind="subtitles" srclang="no" label="Norwegian">
+      </video> 
+    --><br/><br/>
+
+    67.The iframe> tag specifies an inline frame used to embed another document (webpage, video, image, audio) within the current HTML document.
+    iframe> and object> have closing and ending tags but embed> is self closing tag. To insert data we have to use 'src' attribute in iframe> and embed>
+    but for object> we need to use 'data' attibute. Three tags behaves same for all data types but for images embed> and object> displays full size image by taking
+    body (webpage) width. In iframe> it displays full size image inside the frame.<br/><br/>
+
+    68.The embed> tag defines a container for an external resource, such as a web page, a picture, a media player, or a plug-in application.
+    (type="image/jpg" or type="text/html" or type="video/webm")
+    <!-- <embed type="video/webm" src="video.mp4" width="400" height="300"> -->
+    <!-- To display a picture, it is better to use the <img> tag.
+    To display HTML, it is better to use the <iframe> tag.
+    To display video or audio, it is better to use the <video> and <audio> tags. --><br><br>
+
+    69.The object> tag defines a container for an external resource.The external resource can be a web page, a picture, a media player, or a plug-in 
+    application. (data attribute specifies the URL of the resource to be used by the object).
+    <!-- 
+    <object data="pic_trulli.jpg" width="300" height="200"></object>
+    <object data="snippet.html" width="500" height="200"></object>
+    <object data="video.mp4" width="400" height="300"></object> --><br/><br/>
+
+    70.The param> tag is used to define parameters for an object> element.
+    <!-- <object data="horse.wav">
+        <param name="autoplay" value="true">
+    </object> --><br/><br/>
+
+
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+     
+    <!-- Other Tags -->
+
+    <h3 id="Other"><mark>Other Tags</mark></h3>
+
+    71.The button> tag defines a clickable button.
+    Inside a button> element you can put text (and tags like i>, b>, strong>, br>, img>, etc.). That is not possible with a button created with the input> element!
+    Attributes:  1.autofocus 2.disabled 3.form (form value in button should match with id atrribute in form element) 4.formaction (specifies where to send the form-data when a form is submitted) 5.name 6.type - button/submit/reset 7.value <br><br>
+
+    72.The dialog> element makes it easy to create popup dialogs and modals on a web page. It should contain 'open' attribute to visible in browser.
+    <!-- <dialog open>This is an open dialog window</dialog> --> <br><br>
+
+    73.The details> tag specifies additional details that the user can open and close on demand.The summary> tag defines a visible heading for the details> element. 
+    The heading can be clicked to view/hide the details. Open attribute Specifies that the details should be visible (open) to the user
+    <!-- <details>
+        <summary>Epcot Center</summary>
+        <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events.</p>
+    </details> --> <br><br>
+
+    74.Tag abbr> defines an abbreviation or an acronym
+    <!-- <abbr title="World Health Organization">WHO</abbr> // -->
+    <br><br>
+
+    75.The noscript> tag defines an alternate content to be displayed to users that have disabled scripts in their browser or have a browser that 
+    doesn't support script.The noscript> element can be used in both head> and body>. <br/><br/>
+
+    76.The canvas> tag is used to draw graphics, on the fly, via scripting (usually JavaScript).<br><br>
+
+    77.The svg> tag defines a container for SVG graphics. (Scalable Vector Graphics is used to define vector-based graphics for the Web)
+    <!--
+    <svg height="210" width="400">
+    <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
+    <ellipse cx="200" cy="80" rx="100" ry="50">
+    <rect x="50" y="20" rx="20" ry="20" width="150" height="150">
+    <line x1="0" y1="0" x2="200" y2="200" style="stroke:rgb(255,0,0);stroke-width:2" />
+    <polyline points="20,20 40,25 60,40 80,120 120,140 200,180" style="fill:none;stroke:black;stroke-width:3" />
+    <polygon points="100,10 40,198 190,78 10,78 160,198">
+    <path d="M150 0 L75 200 L225 200 Z" /> 
+    </svg> -->
+    <br/><br/>
+
+    78.The cite> tag defines the title of a creative work (e.g. a book, a poem, a song, a movie, a painting, a sculpture, etc.).
+    Element usually renders in italic. (cite attribute specifies URL in blockquote> tag)<br><br>
+
+    79.The blockquote> tag specifies a section that is quoted from another source with 'cite' attribute which is contains link.<br><br>
+ 
+    80.The dfn> tag stands for the "definition element", and it specifies a term that is going to be defined within the content. The nearest parent of the dfn> tag must also contain the definition/explanation for the term.
+    <!-- <p><dfn>HTML</dfn> is the standard markup language for creating web pages.</p>  OR
+    <p><dfn title="HyperText Markup Language">HTML</dfn> is the standard markup language for creating web pages.</p> OR
+    <p><dfn><abbr title="HyperText Markup Language">HTML</abbr></dfn> is the standard markup language for creating web pages.</p> --><br><br>
+
+    81.The bdi> (Bi-Directional Isolation) tag isolates a part of text that might be formatted in different.
+    This element is useful when embedding user-generated content with an unknown text direction.
+    <!-- <ul>
+      <li>User <bdi>hrefs</bdi>: 60 points</li>
+      <li>User <bdi>jdoe</bdi>: 80 points</li>
+      <li>User <bdi>إيان</bdi>: 90 points</li>
+     </ul> -->
+    <br><br>
+
+    82.The q> tag defines a short quotation.<br/><br/>
+
+    83.The output> tag is used to represent the result of a calculation (like one performed by a script).
+    <!-- <form oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+      <input type="range" id="a" value="50">
+      +<input type="number" id="b" value="25">
+      =<output name="x" for="a b"></output>
+    </form> --><br/><br/>
+
+    84.The ruby> tag specifies a ruby annotation. ruby annotation is a small extra text, attached to the main text to indicate the pronunciation or meaning
+    of the corresponding characters. This kind of annotation is often used in Japanese publications.The rt> tag defines an explanation or pronunciation of
+    characters (for East Asian typography) in a ruby annotation.The rp> tag can be used to provide parentheses around a ruby text, to be shown by browsers
+    that do not support ruby annotations.
+    <!-- <ruby>
+       漢 <rp>(</rp><rt>ㄏㄢˋ</rt><rp>)</rp>
+    </ruby> --><br/><br/>
+
+    85.The template> tag is used as a container to hold some HTML content hidden from the user when the page loads.The content inside template> can be
+    rendered later with a JavaScript.
+    <!-- 
+    <button onclick="showContent()">Show hidden content</button>
+
+    <template>
+     <h2>Flower</h2>
+     <img src="img_white_flower.jpg" width="214" height="204">
+    </template>
+
+    <script>
+     function showContent() {
+      var temp = document.getElementsByTagName("template")[0];
+      var clon = temp.content.cloneNode(true);
+      document.body.appendChild(clon);
+    }
+    </script> --><br/><br/>
+
+    86.The wbr> (Word Break Opportunity) tag specifies where in a text it would be ok to add a line-break.Tip: When a word is too long, 
+    the browser might break it at the wrong place. You can use the wbr> element to add word break opportunities.<br><br>
+    <!-- <p>This is a veryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryvery<wbr>longwordthatwillbreakatspecific<wbr>placeswhenthebrowserwind
+     owisresized.</p> -->  
+
+    87.The time> tag defines a specific time (or datetime).The datetime attribute of this element is used translate the time into a machine-readable
+    format so that browsers can offer to add date reminders through the user's calendar, and search engines can produce smarter search results.
+    <!-- <p>Open from <time datetime="2008-02-14 20:00">10:00</time> to <time>21:00</time> every weekday.</p> -->
+
+
+
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+
+    <!-- Not Supported Tags in HTML 5 But useful for MCQ in Interviews: -->
+
+    <h3 id="NotSupported"><mark>Not Supported Tags in HTML 5 But useful for MCQ in Interviews</mark></h3>
+
+    88.The marquee> tag deprecated in html5. It was used to float text from left to right in html4. <br/><br/>
+
+    89.The tt> tag was used in HTML 4 to define teletype text.Not Supported in HTML5.<br/><br/>
+
+    90.The strike> tag was used in HTML 4 to define strikethrough text.Not Supported in HTML5.<br/><br/>
+
+    91.The noframes> tag was used in HTML 4 to act as a fallback tag for browsers that did not support frames.Not Supported in HTML5.<br/><br/>
+
+    92.The acronym> tag was used in HTML 4 to define an acronym.Not Supported in HTML5.
+    <br><br>
+    
+    93.The applet> tag was used in HTML 4 to define an embedded applet (Plug-in).Not Supported in HTML5.
+    <br><br>
+    
+    94.The basefont> tag was used in HTML 4.Not Supported in HTML5.<br><br>
+
+    95.The big> tag was used in HTML 4 to define bigger text.Not Supported in HTML5.<br><br>
+
+    96.The center> tag was used in HTML4 to center-align text.Not Supported in HTML5.(title - Attribute)<br><br>
+
+    97.The dir> tag was used in HTML 4 to list directory titles. Not Supported in HTML5. <br><br>
+
+    98.The font> tag was used in HTML 4 to specify the font face, font size, and color of text.Not Supported in HTML5. <br><br>
+
+    99.The frame> tag was used in HTML 4 to define one particular window (frame) within a frameset>. The frameset> tag was used in HTML 4 to define a frameset.
+    Not Supported in HTML5.<br/><br/>
+
+    100.The menu> tag was deprecated in HTML 4.01, but reintroduced in HTML5. However, it is better to avoid using this tag, because 
+    it is not supported by the major web browsers like Chrome, IE, Safari and Opera.<br/><br/>
+
+
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+   
+    <!-- Global Attributes -->
+    <h3 id="Global" accesskey="k"><mark>Global Attributes</mark></h3>
+
+    1. accesskey : Specifies a shortcut key to activate/focus an element. <br>The shortcut is varying in different browsers:
+    <br>Edge, IE, Chrome, Safari, Opera 15+: [ALT] + accesskey. <br>Opera prior version 15: [SHIFT] [ESC] + accesskey <br>Firefox: [ALT] [SHIFT] + accesskey
+
+       <!-- Ex: <a href="https://www.w3schools.com/html/" accesskey="h">HTML</a><br> --> <br><br> 
+
+    2. class : Specifies one or more classnames for an element (refers to a class in a style sheet)
+       <!-- Ex: <p class="important">Note that this is an important paragraph. :)</p><br> --> <br><br>
+
+    3. contenteditable : Specifies whether the content of an element is editable or not. When the contenteditable attribute is not set on an element, the element will inherit it from its parent. Atrribute Value: true, false
+       <!-- Ex: <p contenteditable="true">This is a paragraph. It is editable. Try to change this text.</p><br> --> <br><br>
+
+    4. data-* : It is used to store custom data private to the page or application. It gives us the ability to embed custom data attributes on all HTML elements. The attribute name should not contain any uppercase letters, and must be at least one character long after the prefix "data-". The attribute value can be any string.
+       <!-- Ex: 
+        <p data-str="Hello" onclick="run(this)">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente, eos.</p>
+        <br>
+      
+        function run(data){
+        var s=data.getAttribute('data-str')
+        alert(s)
+        }
+       --> <br><br>
+
+    5. dir : Specifies the text direction for the content in an element.  Atrribute Value: rtl, ltr
+       <!-- Ex: <p dir="rtl">Write this text right-to-left!</p><br> --> <br><br>
+
+    6. draggable : Specifies whether an element is draggable or not. Links and images are draggable by default. Atrribute Value: true, false
+       <!-- Ex: <p draggable="true">This is a draggable paragraph.</p><br> --> <br><br>
+
+    7. hidden : Specifies that an element is not yet, or is no longer, relevant. The hidden attribute can also be used to keep a user from seeing an element until some other condition has been met (like selecting a checkbox, etc.). Then, a JavaScript could remove the hidden attribute, and make the element visible.
+       <!-- Ex: <p hidden>This paragraph should be hidden.</p><br> --> <br><br>
+
+    8. id : Specifies a unique id for an element
+       <!-- Ex:<p class="important">Note that this is an important paragraph. :)</p><br> --> <br><br>       
+  
+    9. lang : Specifies the language of the element's content
+       <!-- Ex: <p lang="fr">Ceci est un paragraphe.</p><br> --> <br><br>
+
+    10. spellcheck : The spellcheck attribute specifies whether the element is to have its spelling and grammar checked or not.
+    The following can be spellchecked: Text values in input elements (not password), Text in textarea> elements, Text in editable elements. Atrribute Value: true, false.
+       <!-- Ex:<p contenteditable="true" spellcheck="true">This is a praggagraph. It is editable. Try to change the text.</p><br> --> <br><br>   
+  
+    11. style : Specifies an inline CSS style for an element
+       <!-- Ex: <p style="color:red">Ceci est un paragraphe.</p><br> --> <br><br>
+
+    12. tabindex : Specifies the tabbing (navigating) order of an element.
+       <!-- Ex:
+        <a href="https://www.w3schools.com/" tabindex="2">W3Schools</a>
+        <a href="http://www.google.com/" tabindex="1">Google</a>
+        <a href="http://www.microsoft.com/" tabindex="3">Microsoft</a>
+      <br> --> <br><br>  
+      
+    13. title : Specifies extra information about an element.
+      <!-- Ex:<p title="Free Web tutorials">W3Schools.com</p> --> <br><br>   
+ 
+    14. translate : Specifies whether the content of an element should be translated or not. This not supported by major browser. Atrribute Value: yes, no
+      <!-- Ex: 
+        <p translate="no">Don't translate this!</p>
+        <p>This can be translated to any language.</p>
+      <br> --> <br><br>
+      <div id="">
+      <a href="#MainTags">Main Tags</a>
+      <a href="#BasicTags">Basic Tags</a>
+      <a href="#FormattingTags">Formatting Tags</a>
+      <a href="#ContentSeparating">Content Separating Tags</a>
+      <a href="#ListTags">List Tags</a>
+      <a href="#Table">Table Tags</a>
+      <a href="#Form">Form Tags</a>
+      <a href="#Media">Media Tags</a>
+      <a href="#Other">Other Tags</a>
+      <a href="#NotSupported">Not Supported Tags</a>
+      <a href="#Global">Global Attributes</a>
+      </div>
+</section>
+</body>
+
+</html>
